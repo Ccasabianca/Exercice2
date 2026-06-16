@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-const API = 'http://localhost:9001/inventory';
+const API = (process.env.GATEWAY_URL || 'http://localhost:9001') + '/inventory';
 
 function bookFromForm(body) {
   const book = {

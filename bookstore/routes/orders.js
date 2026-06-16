@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-const API = 'http://localhost:9001/orders';
+const API = (process.env.GATEWAY_URL || 'http://localhost:9001') + '/orders';
 
 function orderFromForm(body) {
   const order = { customerName: body.customerName };

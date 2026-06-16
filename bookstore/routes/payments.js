@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-const API = 'http://localhost:9001/payments';
+const API = (process.env.GATEWAY_URL || 'http://localhost:9001') + '/payments';
 
 function paymentFromForm(body) {
   const payment = { orderId: body.orderId };

@@ -1,12 +1,12 @@
 const gateway = require("fast-gateway");
 
-const port = 9001;
+const port = process.env.PORT || 9001;
 
 const server = gateway({
   routes: [
-    { prefix: "/inventory", target: "http://localhost:3000/" },
-    { prefix: "/orders",    target: "http://localhost:3001/" },
-    { prefix: "/payments",  target: "http://localhost:3002/" },
+    { prefix: "/inventory", target: process.env.INVENTORY_URL || "http://localhost:3000/" },
+    { prefix: "/orders",    target: process.env.ORDER_URL     || "http://localhost:3001/" },
+    { prefix: "/payments",  target: process.env.PAYMENT_URL   || "http://localhost:3002/" },
   ],
 });
 
