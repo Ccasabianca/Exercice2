@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Commandes</title>
+  <link rel="stylesheet" href="/stylesheets/style.css" />
+</head>
+
+<body>
+  <h1>Commandes</h1>
+  <% if (message) { %>
+    <p style="color:green;">
+      <%= message %>
+    </p>
+    <% } %>
+      <p><a href="/orders/new">+ Ajouter une commande</a></p>
+      <table border="1" cellpadding="6">
+        <tr>
+          <th>Client</th>
+          <th>Date</th>
+          <th>Montant</th>
+          <th>Statut</th>
+          <th>Actions</th>
+        </tr>
+        <% orders.forEach(function (order) { %>
+          <tr>
+            <td><a href="/orders/<%= order.id %>">
+                <%= order.customerName %>
+              </a></td>
+            <td>
+              <%= order.orderDate || '' %>
+            </td>
+            <td>
+              <%= order.totalAmount || '' %>
+            </td>
+            <td>
+              <%= order.status || '' %>
+            </td>
+            <td>
+              <a href="/orders/<%= order.id %>/edit">Modifier</a>
+              <form action="/orders/<%= order.id %>/delete" method="POST" style="display:inline">
+                <button type="submit">Supprimer</button>
+              </form>
+            </td>
+          </tr>
+          <% }); %>
+      </table>
+</body>
+
+</html>

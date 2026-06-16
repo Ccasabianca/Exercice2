@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Nouveau paiement</title>
+  <link rel="stylesheet" href="/stylesheets/style.css" />
+</head>
+
+<body>
+  <h1>Ajouter un paiement</h1>
+  <p><a href="/payments">← Retour</a></p>
+  <form action="/payments" method="POST">
+    <p>Commande (orderId) : <input type="text" name="orderId" required /></p>
+    <p>Montant : <input type="number" name="amount" /></p>
+    <p>Date : <input type="text" name="paymentDate" /></p>
+    <p>Méthode : <input type="text" name="paymentMethod" /></p>
+    <p>Statut : <input type="text" name="status" /></p>
+    <button type="submit">Submit</button>
+  </form>
+</body>
+
+</html>

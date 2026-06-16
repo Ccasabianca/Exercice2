@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Catalogue des livres</title>
+  <link rel="stylesheet" href="/stylesheets/style.css" />
+</head>
+
+<body>
+  <h1>Catalogue des livres</h1>
+
+  <% if (message) { %>
+    <p style="color: green;">
+      <%= message %>
+    </p>
+    <% } %>
+
+      <p><a href="/books/new">+ Ajouter un livre</a></p>
+
+      <table border="1" cellpadding="6">
+        <tr>
+          <th>Titre</th>
+          <th>Auteur</th>
+          <th>Prix</th>
+          <th>Stock</th>
+          <th>Actions</th>
+        </tr>
+        <% books.forEach(function (book) { %>
+          <tr>
+            <td><a href="/books/<%= book.id %>">
+                <%= book.title %>
+              </a></td>
+            <td>
+              <%= book.author %>
+            </td>
+            <td>
+              <%= book.price || '' %>
+            </td>
+            <td>
+              <%= book.stock || '' %>
+            </td>
+            <td>
+              <a href="/books/<%= book.id %>/edit">Modifier</a>
+              <form action="/books/<%= book.id %>/delete" method="POST" style="display:inline">
+                <button type="submit">Supprimer</button>
+              </form>
+            </td>
+          </tr>
+          <% }); %>
+      </table>
+</body>
+
+</html>

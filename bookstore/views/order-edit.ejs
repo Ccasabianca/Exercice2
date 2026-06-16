@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Modifier commande</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+</head>
+
+<body>
+    <h1>Modifier la commande</h1>
+    <p><a href="/orders">← Retour</a></p>
+    <form action="/orders/<%= order.id %>/edit" method="POST">
+        <p>Client : <input type="text" name="customerName" value="<%= order.customerName %>" required /></p>
+        <p>Date : <input type="text" name="orderDate" value="<%= order.orderDate || '' %>" /></p>
+        <p>Montant : <input type="number" name="totalAmount" value="<%= order.totalAmount || '' %>" /></p>
+        <p>Statut : <input type="text" name="status" value="<%= order.status || '' %>" /></p>
+        <button type="submit">Mettre à jour</button>
+    </form>
+</body>
+
+</html>

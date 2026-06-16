@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Paiements</title>
+  <link rel="stylesheet" href="/stylesheets/style.css" />
+</head>
+
+<body>
+  <h1>Paiements</h1>
+  <% if (message) { %>
+    <p style="color:green;">
+      <%= message %>
+    </p>
+    <% } %>
+      <p><a href="/payments/new">+ Ajouter un paiement</a></p>
+      <table border="1" cellpadding="6">
+        <tr>
+          <th>Commande</th>
+          <th>Montant</th>
+          <th>Date</th>
+          <th>Méthode</th>
+          <th>Statut</th>
+          <th>Actions</th>
+        </tr>
+        <% payments.forEach(function (payment) { %>
+          <tr>
+            <td><a href="/payments/<%= payment.id %>">
+                <%= payment.orderId %>
+              </a></td>
+            <td>
+              <%= payment.amount || '' %>
+            </td>
+            <td>
+              <%= payment.paymentDate || '' %>
+            </td>
+            <td>
+              <%= payment.paymentMethod || '' %>
+            </td>
+            <td>
+              <%= payment.status || '' %>
+            </td>
+            <td>
+              <a href="/payments/<%= payment.id %>/edit">Modifier</a>
+              <form action="/payments/<%= payment.id %>/delete" method="POST" style="display:inline">
+                <button type="submit">Supprimer</button>
+              </form>
+            </td>
+          </tr>
+          <% }); %>
+      </table>
+</body>
+
+</html>

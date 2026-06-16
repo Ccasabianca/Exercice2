@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Nouvelle commande</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+</head>
+
+<body>
+    <h1>Ajouter une commande</h1>
+    <p><a href="/orders">← Retour</a></p>
+    <form action="/orders" method="POST">
+        <p>Client : <input type="text" name="customerName" required /></p>
+        <p>Date : <input type="text" name="orderDate" /></p>
+        <p>Montant : <input type="number" name="totalAmount" /></p>
+        <p>Statut : <input type="text" name="status" /></p>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+
+</html>

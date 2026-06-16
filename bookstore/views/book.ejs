@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="utf-8" />
+  <title>
+    <%= book.title %>
+  </title>
+  <link rel="stylesheet" href="/stylesheets/style.css" />
+</head>
+
+<body>
+  <p><a href="/books">← Retour au catalogue</a></p>
+  <h1>
+    <%= book.title %>
+  </h1>
+  <p>Auteur : <%= book.author %>
+  </p>
+  <p>Prix : <%= book.price || '' %>
+  </p>
+  <p>Stock : <%= book.stock || '' %>
+  </p>
+  <p>Description : <%= book.description || '' %>
+  </p>
+  <p>Disponible : <%= book.available ? 'Oui' : 'Non' %>
+  </p>
+  <p>
+    <a href="/books/<%= book.id %>/edit">Modifier</a>
+  <form action="/books/<%= book.id %>/delete" method="POST" style="display:inline">
+    <button type="submit">Supprimer</button>
+  </form>
+  </p>
+</body>
+
+</html>

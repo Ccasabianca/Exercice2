@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Commande</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+</head>
+
+<body>
+    <p><a href="/orders">← Retour aux commandes</a></p>
+    <h1>Commande de <%= order.customerName %>
+    </h1>
+    <p>Date : <%= order.orderDate || '' %>
+    </p>
+    <p>Montant : <%= order.totalAmount || '' %>
+    </p>
+    <p>Statut : <%= order.status || '' %>
+    </p>
+    <p>
+        <a href="/orders/<%= order.id %>/edit">Modifier</a>
+    <form action="/orders/<%= order.id %>/delete" method="POST" style="display:inline">
+        <button type="submit">Supprimer</button>
+    </form>
+    </p>
+</body>
+
+</html>

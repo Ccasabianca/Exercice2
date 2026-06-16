@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Modifier</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+</head>
+
+<body>
+    <h1>Modifier le livre</h1>
+    <p><a href="/books">← Retour</a></p>
+    <form action="/books/<%= book.id %>/edit" method="POST">
+        <p>Titre : <input type="text" name="title" value="<%= book.title %>" required /></p>
+        <p>Auteur : <input type="text" name="author" value="<%= book.author %>" required /></p>
+        <p>Prix : <input type="number" name="price" value="<%= book.price || '' %>" /></p>
+        <p>Stock : <input type="number" name="stock" value="<%= book.stock || '' %>" /></p>
+        <p>Description : <input type="text" name="description" value="<%= book.description || '' %>" /></p>
+        <p>Disponible : <input type="checkbox" name="available" <%=book.available ? 'checked' : '' %> /></p>
+        <button type="submit">Mettre à jour</button>
+    </form>
+</body>
+
+</html>
